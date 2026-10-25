@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Μηνάς — Προγραμματιστής, Θρύλος, Ξεχασιάρης</title>
+<meta name="description" content="Η επίσημη (και εντελώς ανεπίσημη) σελίδα του Μηνά: προγραμματιστής-ιδιοφυΐα, υποδοχή κρουαζιερόπλοιων στην Πάτμο, παγκόσμιος πρωταθλητής PS5.">
+<link rel="canonical" href="https://minas.patmoslab.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://minas.patmoslab.com/">
+<meta property="og:title" content="Μηνάς — Προγραμματιστής, Θρύλος, Ξεχασιάρης 😂">
+<meta property="og:description" content="Ιδιοφυΐα στον κώδικα. Ξεχνάει το πορτοφόλι. Πάντα.">
+<meta property="og:image" content="https://minas.patmoslab.com/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sea:#0b5fa5; --sea-dark:#073b69; --aegean:#1f8fd6; --white:#fffdf8;
+    --sun:#ffc23d; --coral:#ff6b5a; --ink:#16212e; --muted:#5b6b7c;
+    --card:#ffffff; --radius:22px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;overflow-x:hidden}
+  h1,h2,h3{font-family:Comfortaa,Manrope,sans-serif;line-height:1.2;margin:0 0 .5em}
+  a{color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 22px}
+
+  /* HERO */
+  .hero{background:linear-gradient(160deg,var(--sea-dark),var(--sea) 55%,var(--aegean));color:#fff;position:relative;overflow:hidden;padding:70px 0 140px}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:120px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120' preserveAspectRatio='none'%3E%3Cpath fill='%23fffdf8' d='M0 64c120 32 240 48 360 40s240-40 360-40 240 32 360 40 240-8 360-24v40H0z'/%3E%3C/svg%3E") bottom/100% 100% no-repeat}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-size:.9rem;margin-bottom:18px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin-bottom:.25em}
+  .hero h1 span{color:var(--sun)}
+  .hero p.lead{font-size:1.2rem;opacity:.92;max-width:34em}
+  .badges{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 30px}
+  .badges span{background:#fff;color:var(--sea-dark);font-weight:700;padding:8px 14px;border-radius:12px;font-size:.92rem;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+  .btn{display:inline-block;background:var(--sun);color:var(--ink);font-weight:800;text-decoration:none;padding:14px 26px;border-radius:14px;border:0;font-size:1rem;cursor:pointer;font-family:inherit;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);margin-left:8px}
+  .photo{position:relative;justify-self:center}
+  .photo img{width:min(380px,80vw);aspect-ratio:3/4;object-fit:cover;object-position:center 40%;border-radius:28px;border:8px solid #fff;box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(2.5deg)}
+  .sticker{position:absolute;background:var(--coral);color:#fff;font-weight:800;padding:10px 14px;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.25);font-size:.95rem}
+  .sticker.s1{top:18px;left:-34px;transform:rotate(-8deg)}
+  .sticker.s2{bottom:30px;right:-26px;background:var(--sun);color:var(--ink);transform:rotate(6deg)}
+
+  section{padding:80px 0}
+  .kicker{color:var(--aegean);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem}
+  h2{font-size:clamp(1.9rem,4vw,2.7rem)}
+  .sub{color:var(--muted);max-width:40em;font-size:1.08rem}
+
+  /* JOBS */
+  .jobs{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+  .job{background:var(--card);border-radius:var(--radius);padding:30px;box-shadow:0 12px 40px rgba(11,95,165,.10);border:1px solid #e6eef6}
+  .job .ico{font-size:2.4rem}
+  .job h3{font-size:1.4rem;margin-top:10px}
+  .job p{color:var(--muted);margin:0}
+  .job .note{margin-top:14px;font-size:.9rem;background:#f2f8fd;border-radius:12px;padding:10px 14px;color:var(--sea-dark)}
+
+  /* STATS */
+  .stats{background:var(--ink);color:#fff}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px}
+  .stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:26px 20px;text-align:center}
+  .stat b{display:block;font-family:Comfortaa;font-size:2.6rem;color:var(--sun)}
+  .stat span{opacity:.8;font-size:.95rem}
+  .stats .sub{color:#b9c6d3}
+
+  /* TALENTS */
+  .talents{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  .talent{background:var(--card);border-radius:var(--radius);padding:26px;border:1px solid #eee5d6;box-shadow:0 10px 30px rgba(0,0,0,.05);transition:transform .2s}
+  .talent:hover{transform:translateY(-4px) rotate(-.5deg)}
+  .talent .ico{font-size:2.2rem}
+  .talent h3{font-size:1.15rem;margin:10px 0 6px}
+  .talent p{color:var(--muted);margin:0;font-size:.97rem}
+  .level{margin-top:14px;height:10px;background:#f1ece2;border-radius:99px;overflow:hidden}
+  .level i{display:block;height:100%;background:linear-gradient(90deg,var(--sun),var(--coral));border-radius:99px}
+  .level-label{font-size:.8rem;color:var(--muted);margin-top:6px;display:flex;justify-content:space-between}
+
+  /* GAMES */
+  .games{background:#fff5e6}
+  .game-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  .game{background:#fff;border-radius:var(--radius);padding:26px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.06);display:flex;flex-direction:column;align-items:center;gap:12px;min-height:280px;position:relative}
+  .game h3{font-size:1.15rem;margin:0}
+  .game p{color:var(--muted);margin:0;font-size:.93rem}
+  .timer{font-family:Comfortaa;font-size:2.4rem;font-weight:700;color:var(--sea)}
+  .pay-zone{position:relative;width:100%;flex:1;min-height:120px}
+  #payBtn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);transition:left .18s,top .18s;white-space:nowrap}
+  .result{font-weight:700;color:var(--coral);min-height:1.6em}
+  .fart-count{font-family:Comfortaa;font-size:2rem;color:var(--coral)}
+
+  /* REVIEWS */
+  .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  .review{background:var(--card);border-radius:var(--radius);padding:26px;border:1px solid #e6eef6;box-shadow:0 10px 30px rgba(11,95,165,.07)}
+  .review.angry{border:2px solid var(--coral);background:#fff7f5}
+  .stars{color:var(--sun);font-size:1.1rem;letter-spacing:2px}
+  .review blockquote{margin:12px 0;font-size:1.02rem}
+  .who{font-weight:800}
+  .who small{display:block;font-weight:400;color:var(--muted)}
+
+  /* CALENDAR */
+  .cal{margin-top:36px;background:#fff;border-radius:var(--radius);box-shadow:0 12px 40px rgba(11,95,165,.10);overflow:hidden;border:1px solid #e6eef6}
+  .cal-row{display:grid;grid-template-columns:110px 1fr 150px;gap:16px;padding:16px 24px;border-top:1px solid #eef2f6;align-items:center}
+  .cal-row:first-child{border-top:0;background:#f2f8fd;font-weight:800;color:var(--sea-dark)}
+  .cal-row s{color:var(--muted)}
+  .pill{font-size:.8rem;font-weight:800;padding:5px 10px;border-radius:99px;text-align:center}
+  .pill.no{background:#ffe3df;color:#c0392b}
+  .pill.ps{background:#e3ecff;color:#2c4fd6}
+
+  footer{background:var(--sea-dark);color:#cfe3f5;text-align:center;padding:50px 22px;font-size:.95rem}
+  footer b{color:#fff}
+
+  .float-emoji{position:fixed;pointer-events:none;font-size:2rem;z-index:99;animation:floatUp 1.6s ease-out forwards}
+  @keyframes floatUp{to{transform:translateY(-160px) scale(1.6);opacity:0}}
+
+  @media (max-width:900px){
+    .hero-grid,.jobs{grid-template-columns:1fr}
+    .photo{order:-1}
+    .talents,.game-grid,.reviews{grid-template-columns:1fr 1fr}
+    .stat-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:600px){
+    .talents,.game-grid,.reviews{grid-template-columns:1fr}
+    .cal-row{grid-template-columns:80px 1fr;}
+    .cal-row .pill,.cal-row>:nth-child(3){grid-column:2;justify-self:start}
+    .sticker.s1{left:-6px}.sticker.s2{right:-6px}
+    .btn.ghost{margin:10px 0 0}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="tag">📍 Πάτμος, Ελλάδα · σχεδόν 40 (αλλά ψυχικά 12)</div>
+      <h1>Γεια σας, είμαι ο <span>Μηνάς</span> 👋</h1>
+      <p class="lead">Προγραμματιστής-ιδιοφυΐα, υποδέχομαι κρουαζιερόπλοια στην Πάτμο και είμαι ο μόνος άνθρωπος στον κόσμο που λύνει ένα bug σε 5 λεπτά, αλλά χρειάζεται 3 εβδομάδες για να θυμηθεί ένα ραντεβού.</p>
+      <div class="badges">
+        <span>💻 Senior Developer</span>
+        <span>🚢 Astoria Patmos</span>
+        <span>🎮 PS5 Legend</span>
+        <span>👛 Πορτοφόλι: άγνωστη τοποθεσία</span>
+      </div>
+      <a class="btn" href="#talents">Δες τα ταλέντα του</a>
+      <a class="btn ghost" href="#games">Παίξε μαζί του 🎮</a>
+    </div>
+    <div class="photo">
+      <img src="minas.jpg" alt="Ο Μηνάς χαμογελαστός σε ταβέρνα — μάλλον κερνάει κάποιος άλλος">
+      <div class="sticker s1">Λογαριασμός; Ποιος λογαριασμός; 😇</div>
+      <div class="sticker s2">«Ξέχασα το πορτοφόλι» 🙃</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Επαγγελματικό προφίλ</div>
+    <h2>Δύο δουλειές. Ένα μυαλό-ξυράφι.</h2>
+    <p class="sub">Ας είμαστε δίκαιοι: στη δουλειά ο Μηνάς είναι πραγματικά πανέξυπνος. Το πρόβλημα ξεκινάει μόλις κλείσει το laptop.</p>
+    <div class="jobs">
+      <div class="job">
+        <div class="ico">👨‍💻</div>
+        <h3>Προγραμματιστής</h3>
+        <p>Γράφει κώδικα που δουλεύει με την πρώτη. Κάνει debug με το βλέμμα. Οι servers τον σέβονται, τα compilers τον φοβούνται. Θυμάται κάθε γραμμή κώδικα που έγραψε ποτέ.</p>
+        <div class="note">⚠️ Δεν θυμάται τι είπε η Chiara πριν 5 λεπτά.</div>
+      </div>
+      <div class="job">
+        <div class="ico">🚢</div>
+        <h3>Astoria · Πάτμος</h3>
+        <p>Υποδέχεται κρουαζιερόπλοια με χιλιάδες επιβάτες και τα συντονίζει όλα στην εντέλεια. Λιμάνι, ωράρια, λεωφορεία, τουρίστες — όλα στην ώρα τους.</p>
+        <div class="note">⚠️ Όλα στην ώρα τους εκτός από τον ίδιο.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--sun)">Επίσημα στατιστικά</div>
+    <h2>Ο Μηνάς σε αριθμούς</h2>
+    <p class="sub">Δεδομένα που συλλέχθηκαν προσεκτικά από φίλους, συγγενείς και μια πολύ θυμωμένη κοπέλα.</p>
+    <div class="stat-grid">
+      <div class="stat"><b data-count="15">0</b><span>ώρες PS5 τη μέρα</span></div>
+      <div class="stat"><b data-count="60">0</b><span>λεπτά ανά επίσκεψη στην τουαλέτα</span></div>
+      <div class="stat"><b data-count="0">0</b><span>φορές που πλήρωσε τον καφέ</span></div>
+      <div class="stat"><b data-count="97">0</b><span>% ραντεβού που ξέχασε</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="talents">
+  <div class="wrap">
+    <div class="kicker">Ειδικές δεξιότητες</div>
+    <h2>Ταλέντα που δεν γράφει στο βιογραφικό</h2>
+    <p class="sub">Κάθε σπουδαίος άνθρωπος έχει τις ιδιαιτερότητές του. Ο Μηνάς έχει… αρκετές.</p>
+    <div class="talents">
+      <div class="talent">
+        <div class="ico">🚽</div>
+        <h3>Μαραθώνιος τουαλέτας</h3>
+        <p>Μπαίνει «για ένα λεπτάκι» και βγαίνει μία ώρα μετά, έχοντας διαβάσει όλα τα νέα, όλα τα memes και τρία άρθρα για Rust.</p>
+        <div class="level"><i style="width:98%"></i></div>
+        <div class="level-label"><span>Επίπεδο</span><span>Ολυμπιονίκης</span></div>
+      </div>
+      <div class="talent">
+        <div class="ico">💨</div>
+        <h3>Χημικός πόλεμος</h3>
+        <p>Κλάνει συνέχεια — και με ιδιαίτερη ακρίβεια στο πρόσωπο της κοπέλας του. Το αποκαλεί «αγάπη». Εκείνη το αποκαλεί «έγκλημα».</p>
+        <div class="level"><i style="width:100%"></i></div>
+        <div class="level-label"><span>Επίπεδο</span><span>Όπλο μαζικής καταστροφής</span></div>
+      </div>
+      <div class="talent">
+        <div class="ico">📅</div>
+        <h3>Μνήμη χρυσόψαρου</h3>
+        <p>Ραντεβού, γιατρός, γενέθλια, επέτειοι — όλα εξαφανίζονται από το μυαλό του σαν να έκανε <code>rm -rf</code>. Το ημερολόγιο του κινητού είναι απλά διακοσμητικό.</p>
+        <div class="level"><i style="width:95%"></i></div>
+        <div class="level-label"><span>Επίπεδο</span><span>Dory από το Nemo</span></div>
+      </div>
+      <div class="talent">
+        <div class="ico">👛</div>
+        <h3>Ο μάγος του πορτοφολιού</h3>
+        <p>Κάθε φορά που βγαίνει για φαγητό ή καφέ, το πορτοφόλι του εξαφανίζεται μαγικά. Κανείς δεν το έχει δει ποτέ. Πιθανόν να είναι μύθος. Πληρώνουν πάντα οι άλλοι.</p>
+        <div class="level"><i style="width:100%"></i></div>
+        <div class="level-label"><span>Επίπεδο</span><span>David Copperfield</span></div>
+      </div>
+      <div class="talent">
+        <div class="ico">🎮</div>
+        <h3>Επαγγελματίας gamer (ερασιτέχνης ενήλικας)</h3>
+        <p>15 ώρες PS5 τη μέρα σαν 12χρονο στις καλοκαιρινές διακοπές. Σχεδόν 40 χρονών. «Μια τελευταία παρτίδα» σημαίνει μέχρι τις 4 το πρωί.</p>
+        <div class="level"><i style="width:99%"></i></div>
+        <div class="level-label"><span>Επίπεδο</span><span>Παιδί του Δημοτικού</span></div>
+      </div>
+      <div class="talent">
+        <div class="ico">🧠</div>
+        <h3>Πραγματική ιδιοφυΐα</h3>
+        <p>Και όμως, όλα αυτά συνυπάρχουν με έναν από τους πιο έξυπνους ανθρώπους που θα γνωρίσεις. Η επιστήμη δεν έχει ακόμα εξήγηση.</p>
+        <div class="level"><i style="width:100%"></i></div>
+        <div class="level-label"><span>Επίπεδο</span><span>Αϊνστάιν (με χειριστήριο)</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="games" id="games">
+  <div class="wrap">
+    <div class="kicker">Διαδραστική εμπειρία</div>
+    <h2>Ζήσε μια μέρα σαν τον Μηνά</h2>
+    <p class="sub">Τρία μίνι παιχνίδια βασισμένα σε αληθινά γεγονότα.</p>
+    <div class="game-grid">
+      <div class="game">
+        <div style="font-size:2.4rem">💸</div>
+        <h3>Βάλε τον Μηνά να πληρώσει</h3>
+        <p>Ήρθε ο λογαριασμός. Πάτα το κουμπί… αν μπορείς.</p>
+        <div class="pay-zone" id="payZone"><button class="btn" id="payBtn">Πλήρωσε, Μηνά!</button></div>
+        <div class="result" id="payResult"></div>
+      </div>
+      <div class="game">
+        <div style="font-size:2.4rem">🚽</div>
+        <h3>Χρονόμετρο τουαλέτας</h3>
+        <p>Ο Μηνάς μόλις μπήκε στην τουαλέτα «για ένα λεπτό».</p>
+        <div class="timer" id="toiletTimer">00:00</div>
+        <button class="btn" id="toiletBtn">Χτύπα την πόρτα 🚪</button>
+        <div class="result" id="toiletResult"></div>
+      </div>
+      <div class="game">
+        <div style="font-size:2.4rem">💨</div>
+        <h3>Ο Chiara-μετρητής</h3>
+        <p>Πάτα για κάθε «δώρο» που λαμβάνει η Chiara σήμερα.</p>
+        <div class="fart-count" id="fartCount">0</div>
+        <button class="btn" id="fartBtn">Πρρρτ! 💨</button>
+        <div class="result" id="fartResult"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Το ημερολόγιο του Μηνά</div>
+    <h2>Προγραμματισμένα vs. Πραγματικότητα</h2>
+    <div class="cal">
+      <div class="cal-row"><div>Ώρα</div><div>Ραντεβού</div><div>Κατάσταση</div></div>
+      <div class="cal-row"><div>09:00</div><div><s>Οδοντίατρος</s> → ήταν στην τουαλέτα</div><span class="pill no">Ξεχάστηκε</span></div>
+      <div class="cal-row"><div>13:00</div><div><s>Φαγητό με φίλους</s> → ήρθε, έφαγε, «ξέχασε» το πορτοφόλι</div><span class="pill no">Πλήρωσαν άλλοι</span></div>
+      <div class="cal-row"><div>18:00</div><div><s>Βόλτα με τη Chiara</s> → «ένα παιχνιδάκι μόνο»</div><span class="pill ps">PS5</span></div>
+      <div class="cal-row"><div>21:00</div><div><s>Δείπνο επετείου</s> → τι επέτειος;</div><span class="pill no">Ξεχάστηκε</span></div>
+      <div class="cal-row"><div>04:00</div><div>Ύπνος (επιτέλους)</div><span class="pill ps">Μετά από 15 ώρες PS5</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="kicker">Κριτικές</div>
+    <h2>Τι λένε οι άνθρωποι γύρω του</h2>
+    <div class="reviews">
+      <div class="review angry">
+        <div class="stars">★☆☆☆☆</div>
+        <blockquote>«Τον αγαπώ, αλλά αν μου κλάσει άλλη μια φορά στη μούρη, παίρνω το PS5 και το πετάω στο λιμάνι μαζί με τα κρουαζιερόπλοια. Και φέρε το πορτοφόλι σου επιτέλους!» 😤</blockquote>
+        <div class="who">Chiara η κλανιάρα<small>Κοπέλα του, μόνιμα θυμωμένη</small></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <blockquote>«Ο καλύτερος προγραμματιστής που ξέρω. Μου έφτιαξε όλο το σύστημα σε μια μέρα. Τον κέρασα καφέ. Τον κέρασα και φαγητό. Τον κερνάω από το 2015.»</blockquote>
+        <div class="who">Ένας φίλος<small>Χρηματοδότης του Μηνά, ακούσια</small></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★☆</div>
+        <blockquote>«Τα κρουαζιερόπλοια φτάνουν πάντα στην ώρα τους χάρη σε αυτόν. Εκείνος φτάνει όποτε θυμηθεί ότι έχει δουλειά.»</blockquote>
+        <div class="who">Συνάδελφος<small>Astoria, Πάτμος</small></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <blockquote>«Ο πιο πιστός πελάτης μας. 15 ώρες τη μέρα, κάθε μέρα. Δεν έχουμε δει τέτοια αφοσίωση ούτε σε 14χρονους.»</blockquote>
+        <div class="who">Το PS5 του<small>Συσκευή, εξουθενωμένη</small></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★☆☆☆</div>
+        <blockquote>«Περνάει περισσότερη ώρα μαζί μου απ' ό,τι με τη Chiara. Μία ώρα κάθε φορά. Χρειάζομαι διακοπές.»</blockquote>
+        <div class="who">Η τουαλέτα<small>Πορσελάνινη, κουρασμένη</small></div>
+      </div>
+      <div class="review">
+        <div class="stars">★☆☆☆☆</div>
+        <blockquote>«Δεν έχω δει φως από το 2019. Ζω σε ένα συρτάρι στο σπίτι. Αν με βρείτε, πείτε του ότι υπάρχω.»</blockquote>
+        <div class="who">Το πορτοφόλι του<small>Αγνοούμενο</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><b>Μηνάς</b> — Προγραμματιστής 💻 · Astoria Patmos 🚢 · PS5 Champion 🎮</p>
+  <p>Φτιαγμένο με αγάπη (και λίγη εκδίκηση) από τους φίλους του, που ακόμα περιμένουν να τους επιστρέψει τα λεφτά του καφέ. ☕</p>
+  <p style="opacity:.6;font-size:.85rem">© 2026 · Καμία κλανιά δεν βλάφτηκε κατά τη δημιουργία αυτής της σελίδας. Η Chiara διαφωνεί.</p>
+</footer>
+
+<script>
+  // Animated counters
+  const counters = document.querySelectorAll('[data-count]');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, target = +el.dataset.count;
+      let n = 0; const step = Math.max(1, Math.ceil(target / 40));
+      const t = setInterval(() => { n = Math.min(target, n + step); el.textContent = n; if (n >= target) clearInterval(t); }, 30);
+      io.unobserve(el);
+    });
+  }, {threshold: .5});
+  counters.forEach(c => io.observe(c));
+
+  function burst(x, y, emoji) {
+    const s = document.createElement('div');
+    s.className = 'float-emoji'; s.textContent = emoji;
+    s.style.left = (x - 16) + 'px'; s.style.top = (y - 16) + 'px';
+    document.body.appendChild(s); setTimeout(() => s.remove(), 1700);
+  }
+
+  // Runaway pay button
+  const payBtn = document.getElementById('payBtn'), payZone = document.getElementById('payZone'), payResult = document.getElementById('payResult');
+  const excuses = ['«Ωχ, ξέχασα το πορτοφόλι!» 🙃', '«Την επόμενη φορά κερνάω εγώ!» 😇', '«Δεν παίρνουν κάρτα εδώ, ε;» 🤔', '«Πήγα τουαλέτα, πληρώσατε;» 🚽', '«Ο ATM ήταν κλειστός» 🏧', '«Θα σας τα στείλω με IRIS» 📱'];
+  let tries = 0;
+  function runAway() {
+    const zw = payZone.clientWidth, zh = payZone.clientHeight, bw = payBtn.offsetWidth, bh = payBtn.offsetHeight;
+    payBtn.style.left = (bw / 2 + Math.random() * Math.max(0, zw - bw)) + 'px';
+    payBtn.style.top = (bh / 2 + Math.random() * Math.max(0, zh - bh)) + 'px';
+    payResult.textContent = excuses[tries++ % excuses.length];
+  }
+  payBtn.addEventListener('mouseenter', runAway);
+  payBtn.addEventListener('click', e => {
+    e.preventDefault(); runAway();
+    payResult.textContent = '🎉 Πλήρωσε! … ψέματα, πλήρωσες εσύ πάλι.';
+  });
+
+  // Toilet timer (accelerated: 1 real second = 1 toilet minute)
+  const tt = document.getElementById('toiletTimer'), tr = document.getElementById('toiletResult');
+  let mins = 0;
+  const toiletLines = ['«Ένα λεπτό!»', '«Σχεδόν τελείωσα!»', '«Διαβάζω κάτι σημαντικό!»', '«Μόλις ξεκίνησα!»', '«Έχω ακόμα 12% μπαταρία!»', '«Πέρνα σε μία ωρίτσα»'];
+  setInterval(() => {
+    mins = (mins + 1) % 100;
+    tt.textContent = String(Math.floor(mins / 60)).padStart(2, '0') + ':' + String(mins % 60).padStart(2, '0');
+  }, 1000);
+  document.getElementById('toiletBtn').addEventListener('click', e => {
+    tr.textContent = toiletLines[Math.floor(Math.random() * toiletLines.length)];
+    burst(e.clientX, e.clientY, '🚪');
+  });
+
+  // Fart counter with a synthesized sound
+  let farts = 0, ctx;
+  const fc = document.getElementById('fartCount'), fr = document.getElementById('fartResult');
+  const moods = [[0, 'Η Chiara είναι ήρεμη… προς το παρόν 🙂'], [3, 'Η Chiara αρχίζει να εκνευρίζεται 😠'], [7, 'Η Chiara ψάχνει μάσκα αερίων 😷'], [12, 'Η Chiara πουλάει το PS5 στο eBay 🤬'], [20, 'Η Chiara μετακόμισε στην Ιταλία 🇮🇹✈️']];
+  function fartSound() {
+    try {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      const o = ctx.createOscillator(), g = ctx.createGain(), lfo = ctx.createOscillator(), lg = ctx.createGain();
+      const t = ctx.currentTime, d = .35 + Math.random() * .5;
+      o.type = 'sawtooth'; o.frequency.setValueAtTime(90 + Math.random() * 40, t); o.frequency.exponentialRampToValueAtTime(45, t + d);
+      lfo.frequency.value = 25 + Math.random() * 20; lg.gain.value = 30;
+      lfo.connect(lg).connect(o.frequency);
+      g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.35, t + .03); g.gain.exponentialRampToValueAtTime(.0001, t + d);
+      o.connect(g).connect(ctx.destination);
+      o.start(t); lfo.start(t); o.stop(t + d); lfo.stop(t + d);
+    } catch (_) {}
+  }
+  document.getElementById('fartBtn').addEventListener('click', e => {
+    farts++; fc.textContent = farts; fartSound();
+    fr.textContent = moods.filter(m => farts >= m[0]).pop()[1];
+    burst(e.clientX, e.clientY, '💨');
+  });
+  fr.textContent = moods[0][1];
+</script>
+</body>
+</html>
