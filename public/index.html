@@ -128,50 +128,68 @@
     .sticker.s1{left:-6px}.sticker.s2{right:-6px}
     .btn.ghost{margin:10px 0 0}
   }
+
+  /* LANGUAGE SWITCH */
+  .lang{position:fixed;top:16px;right:16px;z-index:100;display:flex;gap:4px;background:rgba(255,255,255,.92);padding:5px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.2);backdrop-filter:blur(6px)}
+  .lang button{border:0;background:transparent;padding:5px 10px 5px 6px;border-radius:999px;cursor:pointer;display:flex;align-items:center;gap:6px;font:800 .8rem Manrope,sans-serif;color:var(--muted);transition:background .15s}
+  .lang button svg{width:26px;height:18px;border-radius:4px;box-shadow:0 0 0 1px rgba(0,0,0,.12);display:block}
+  .lang button[aria-pressed="true"]{background:var(--sea);color:#fff}
+  .lang button:not([aria-pressed="true"]):hover{background:#eef4fa}
 </style>
 </head>
 <body>
 
+<div class="lang" role="group" aria-label="Language / Γλώσσα">
+  <button type="button" data-lang="el" aria-pressed="true" title="Ελληνικά">
+    <svg viewBox="0 0 27 18" aria-hidden="true"><rect width="27" height="18" fill="#0d5eaf"/><g fill="#fff"><rect y="2" width="27" height="2"/><rect y="6" width="27" height="2"/><rect y="10" width="27" height="2"/><rect y="14" width="27" height="2"/></g><rect width="10" height="10" fill="#0d5eaf"/><rect x="4" width="2" height="10" fill="#fff"/><rect y="4" width="10" height="2" fill="#fff"/></svg>
+    ΕΛ
+  </button>
+  <button type="button" data-lang="en" aria-pressed="false" title="English">
+    <svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="uk-s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><clipPath id="uk-t"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><g clip-path="url(#uk-s)"><path d="M0,0 v30 h60 v-30 z" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></g></svg>
+    EN
+  </button>
+</div>
+
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="tag">📍 Πάτμος, Ελλάδα · σχεδόν 40 (αλλά ψυχικά 12)</div>
-      <h1>Γεια σας, είμαι ο <span>Μηνάς</span> 👋</h1>
-      <p class="lead">Προγραμματιστής-ιδιοφυΐα, υποδέχομαι κρουαζιερόπλοια στην Πάτμο και είμαι ο μόνος άνθρωπος στον κόσμο που λύνει ένα bug σε 5 λεπτά, αλλά χρειάζεται 3 εβδομάδες για να θυμηθεί ένα ραντεβού.</p>
+      <div class="tag" data-en="📍 Patmos, Greece · almost 40 (but mentally 12)">📍 Πάτμος, Ελλάδα · σχεδόν 40 (αλλά ψυχικά 12)</div>
+      <h1 data-en="Hi, I'm <span>Minas</span> 👋">Γεια σας, είμαι ο <span>Μηνάς</span> 👋</h1>
+      <p class="lead" data-en="Genius programmer, I welcome cruise ships in Patmos, and I'm the only person in the world who fixes a bug in 5 minutes but needs 3 weeks to remember an appointment.">Προγραμματιστής-ιδιοφυΐα, υποδέχομαι κρουαζιερόπλοια στην Πάτμο και είμαι ο μόνος άνθρωπος στον κόσμο που λύνει ένα bug σε 5 λεπτά, αλλά χρειάζεται 3 εβδομάδες για να θυμηθεί ένα ραντεβού.</p>
       <div class="badges">
         <span>💻 Senior Developer</span>
         <span>🚢 Astoria Patmos</span>
         <span>🎮 PS5 Legend</span>
-        <span>👛 Πορτοφόλι: άγνωστη τοποθεσία</span>
+        <span data-en="👛 Wallet: location unknown">👛 Πορτοφόλι: άγνωστη τοποθεσία</span>
       </div>
-      <a class="btn" href="#talents">Δες τα ταλέντα του</a>
-      <a class="btn ghost" href="#games">Παίξε μαζί του 🎮</a>
+      <a class="btn" href="#talents" data-en="See his talents">Δες τα ταλέντα του</a>
+      <a class="btn ghost" href="#games" data-en="Play with him 🎮">Παίξε μαζί του 🎮</a>
     </div>
     <div class="photo">
-      <img src="minas.jpg" alt="Ο Μηνάς χαμογελαστός σε ταβέρνα — μάλλον κερνάει κάποιος άλλος">
-      <div class="sticker s1">Λογαριασμός; Ποιος λογαριασμός; 😇</div>
-      <div class="sticker s2">«Ξέχασα το πορτοφόλι» 🙃</div>
+      <img src="minas.jpg" alt="Ο Μηνάς χαμογελαστός σε ταβέρνα — μάλλον κερνάει κάποιος άλλος" data-en-alt="Minas smiling at a taverna — someone else is probably paying">
+      <div class="sticker s1" data-en="The bill? What bill? 😇">Λογαριασμός; Ποιος λογαριασμός; 😇</div>
+      <div class="sticker s2" data-en="“I forgot my wallet” 🙃">«Ξέχασα το πορτοφόλι» 🙃</div>
     </div>
   </div>
 </header>
 
 <section>
   <div class="wrap">
-    <div class="kicker">Επαγγελματικό προφίλ</div>
-    <h2>Δύο δουλειές. Ένα μυαλό-ξυράφι.</h2>
-    <p class="sub">Ας είμαστε δίκαιοι: στη δουλειά ο Μηνάς είναι πραγματικά πανέξυπνος. Το πρόβλημα ξεκινάει μόλις κλείσει το laptop.</p>
+    <div class="kicker" data-en="Professional profile">Επαγγελματικό προφίλ</div>
+    <h2 data-en="Two jobs. One razor-sharp mind.">Δύο δουλειές. Ένα μυαλό-ξυράφι.</h2>
+    <p class="sub" data-en="Let's be fair: at work Minas is genuinely brilliant. The trouble starts the moment he closes the laptop.">Ας είμαστε δίκαιοι: στη δουλειά ο Μηνάς είναι πραγματικά πανέξυπνος. Το πρόβλημα ξεκινάει μόλις κλείσει το laptop.</p>
     <div class="jobs">
       <div class="job">
         <div class="ico">👨‍💻</div>
-        <h3>Προγραμματιστής</h3>
-        <p>Γράφει κώδικα που δουλεύει με την πρώτη. Κάνει debug με το βλέμμα. Οι servers τον σέβονται, τα compilers τον φοβούνται. Θυμάται κάθε γραμμή κώδικα που έγραψε ποτέ.</p>
-        <div class="note">⚠️ Δεν θυμάται τι είπε η Chiara πριν 5 λεπτά.</div>
+        <h3 data-en="Programmer">Προγραμματιστής</h3>
+        <p data-en="Writes code that works on the first try. Debugs with a single glance. Servers respect him, compilers fear him. Remembers every line of code he's ever written.">Γράφει κώδικα που δουλεύει με την πρώτη. Κάνει debug με το βλέμμα. Οι servers τον σέβονται, τα compilers τον φοβούνται. Θυμάται κάθε γραμμή κώδικα που έγραψε ποτέ.</p>
+        <div class="note" data-en="⚠️ Can't remember what Chiara said 5 minutes ago.">⚠️ Δεν θυμάται τι είπε η Chiara πριν 5 λεπτά.</div>
       </div>
       <div class="job">
         <div class="ico">🚢</div>
-        <h3>Astoria · Πάτμος</h3>
-        <p>Υποδέχεται κρουαζιερόπλοια με χιλιάδες επιβάτες και τα συντονίζει όλα στην εντέλεια. Λιμάνι, ωράρια, λεωφορεία, τουρίστες — όλα στην ώρα τους.</p>
-        <div class="note">⚠️ Όλα στην ώρα τους εκτός από τον ίδιο.</div>
+        <h3 data-en="Astoria · Patmos">Astoria · Πάτμος</h3>
+        <p data-en="Welcomes cruise ships carrying thousands of passengers and coordinates everything perfectly. Port, schedules, buses, tourists — all right on time.">Υποδέχεται κρουαζιερόπλοια με χιλιάδες επιβάτες και τα συντονίζει όλα στην εντέλεια. Λιμάνι, ωράρια, λεωφορεία, τουρίστες — όλα στην ώρα τους.</p>
+        <div class="note" data-en="⚠️ Everything's on time except him.">⚠️ Όλα στην ώρα τους εκτός από τον ίδιο.</div>
       </div>
     </div>
   </div>
@@ -179,65 +197,65 @@
 
 <section class="stats">
   <div class="wrap">
-    <div class="kicker" style="color:var(--sun)">Επίσημα στατιστικά</div>
-    <h2>Ο Μηνάς σε αριθμούς</h2>
-    <p class="sub">Δεδομένα που συλλέχθηκαν προσεκτικά από φίλους, συγγενείς και μια πολύ θυμωμένη κοπέλα.</p>
+    <div class="kicker" style="color:var(--sun)" data-en="Official statistics">Επίσημα στατιστικά</div>
+    <h2 data-en="Minas by the numbers">Ο Μηνάς σε αριθμούς</h2>
+    <p class="sub" data-en="Data carefully collected from friends, relatives and one very angry girlfriend.">Δεδομένα που συλλέχθηκαν προσεκτικά από φίλους, συγγενείς και μια πολύ θυμωμένη κοπέλα.</p>
     <div class="stat-grid">
-      <div class="stat"><b data-count="15">0</b><span>ώρες PS5 τη μέρα</span></div>
-      <div class="stat"><b data-count="60">0</b><span>λεπτά ανά επίσκεψη στην τουαλέτα</span></div>
-      <div class="stat"><b data-count="0">0</b><span>φορές που πλήρωσε τον καφέ</span></div>
-      <div class="stat"><b data-count="97">0</b><span>% ραντεβού που ξέχασε</span></div>
+      <div class="stat"><b data-count="15">0</b><span data-en="hours of PS5 a day">ώρες PS5 τη μέρα</span></div>
+      <div class="stat"><b data-count="60">0</b><span data-en="minutes per toilet visit">λεπτά ανά επίσκεψη στην τουαλέτα</span></div>
+      <div class="stat"><b data-count="0">0</b><span data-en="times he paid for coffee">φορές που πλήρωσε τον καφέ</span></div>
+      <div class="stat"><b data-count="97">0</b><span data-en="% of appointments forgotten">% ραντεβού που ξέχασε</span></div>
     </div>
   </div>
 </section>
 
 <section id="talents">
   <div class="wrap">
-    <div class="kicker">Ειδικές δεξιότητες</div>
-    <h2>Ταλέντα που δεν γράφει στο βιογραφικό</h2>
-    <p class="sub">Κάθε σπουδαίος άνθρωπος έχει τις ιδιαιτερότητές του. Ο Μηνάς έχει… αρκετές.</p>
+    <div class="kicker" data-en="Special skills">Ειδικές δεξιότητες</div>
+    <h2 data-en="Talents he leaves off his CV">Ταλέντα που δεν γράφει στο βιογραφικό</h2>
+    <p class="sub" data-en="Every great person has their quirks. Minas has… quite a few.">Κάθε σπουδαίος άνθρωπος έχει τις ιδιαιτερότητές του. Ο Μηνάς έχει… αρκετές.</p>
     <div class="talents">
       <div class="talent">
         <div class="ico">🚽</div>
-        <h3>Μαραθώνιος τουαλέτας</h3>
-        <p>Μπαίνει «για ένα λεπτάκι» και βγαίνει μία ώρα μετά, έχοντας διαβάσει όλα τα νέα, όλα τα memes και τρία άρθρα για Rust.</p>
+        <h3 data-en="Toilet marathon">Μαραθώνιος τουαλέτας</h3>
+        <p data-en="Goes in “for just a minute” and comes out an hour later, having read all the news, all the memes and three articles about Rust.">Μπαίνει «για ένα λεπτάκι» και βγαίνει μία ώρα μετά, έχοντας διαβάσει όλα τα νέα, όλα τα memes και τρία άρθρα για Rust.</p>
         <div class="level"><i style="width:98%"></i></div>
-        <div class="level-label"><span>Επίπεδο</span><span>Ολυμπιονίκης</span></div>
+        <div class="level-label"><span data-en="Level">Επίπεδο</span><span data-en="Olympic champion">Ολυμπιονίκης</span></div>
       </div>
       <div class="talent">
         <div class="ico">💨</div>
-        <h3>Χημικός πόλεμος</h3>
-        <p>Κλάνει συνέχεια — και με ιδιαίτερη ακρίβεια στο πρόσωπο της κοπέλας του. Το αποκαλεί «αγάπη». Εκείνη το αποκαλεί «έγκλημα».</p>
+        <h3 data-en="Chemical warfare">Χημικός πόλεμος</h3>
+        <p data-en="Farts constantly — with remarkable precision, right in his girlfriend's face. He calls it “love”. She calls it “a crime”.">Κλάνει συνέχεια — και με ιδιαίτερη ακρίβεια στο πρόσωπο της κοπέλας του. Το αποκαλεί «αγάπη». Εκείνη το αποκαλεί «έγκλημα».</p>
         <div class="level"><i style="width:100%"></i></div>
-        <div class="level-label"><span>Επίπεδο</span><span>Όπλο μαζικής καταστροφής</span></div>
+        <div class="level-label"><span data-en="Level">Επίπεδο</span><span data-en="Weapon of mass destruction">Όπλο μαζικής καταστροφής</span></div>
       </div>
       <div class="talent">
         <div class="ico">📅</div>
-        <h3>Μνήμη χρυσόψαρου</h3>
-        <p>Ραντεβού, γιατρός, γενέθλια, επέτειοι — όλα εξαφανίζονται από το μυαλό του σαν να έκανε <code>rm -rf</code>. Το ημερολόγιο του κινητού είναι απλά διακοσμητικό.</p>
+        <h3 data-en="Goldfish memory">Μνήμη χρυσόψαρου</h3>
+        <p data-en="Appointments, doctors, birthdays, anniversaries — they all vanish from his mind as if he ran <code>rm -rf</code>. The calendar on his phone is purely decorative.">Ραντεβού, γιατρός, γενέθλια, επέτειοι — όλα εξαφανίζονται από το μυαλό του σαν να έκανε <code>rm -rf</code>. Το ημερολόγιο του κινητού είναι απλά διακοσμητικό.</p>
         <div class="level"><i style="width:95%"></i></div>
-        <div class="level-label"><span>Επίπεδο</span><span>Dory από το Nemo</span></div>
+        <div class="level-label"><span data-en="Level">Επίπεδο</span><span data-en="Dory from Finding Nemo">Dory από το Nemo</span></div>
       </div>
       <div class="talent">
         <div class="ico">👛</div>
-        <h3>Ο μάγος του πορτοφολιού</h3>
-        <p>Κάθε φορά που βγαίνει για φαγητό ή καφέ, το πορτοφόλι του εξαφανίζεται μαγικά. Κανείς δεν το έχει δει ποτέ. Πιθανόν να είναι μύθος. Πληρώνουν πάντα οι άλλοι.</p>
+        <h3 data-en="The wallet magician">Ο μάγος του πορτοφολιού</h3>
+        <p data-en="Every time he goes out for food or coffee, his wallet magically disappears. Nobody has ever seen it. It may be a myth. Somebody else always pays.">Κάθε φορά που βγαίνει για φαγητό ή καφέ, το πορτοφόλι του εξαφανίζεται μαγικά. Κανείς δεν το έχει δει ποτέ. Πιθανόν να είναι μύθος. Πληρώνουν πάντα οι άλλοι.</p>
         <div class="level"><i style="width:100%"></i></div>
-        <div class="level-label"><span>Επίπεδο</span><span>David Copperfield</span></div>
+        <div class="level-label"><span data-en="Level">Επίπεδο</span><span>David Copperfield</span></div>
       </div>
       <div class="talent">
         <div class="ico">🎮</div>
-        <h3>Επαγγελματίας gamer (ερασιτέχνης ενήλικας)</h3>
-        <p>15 ώρες PS5 τη μέρα σαν 12χρονο στις καλοκαιρινές διακοπές. Σχεδόν 40 χρονών. «Μια τελευταία παρτίδα» σημαίνει μέχρι τις 4 το πρωί.</p>
+        <h3 data-en="Pro gamer (amateur adult)">Επαγγελματίας gamer (ερασιτέχνης ενήλικας)</h3>
+        <p data-en="15 hours of PS5 a day, like a 12-year-old on summer holidays. Almost 40 years old. “One last game” means until 4 in the morning.">15 ώρες PS5 τη μέρα σαν 12χρονο στις καλοκαιρινές διακοπές. Σχεδόν 40 χρονών. «Μια τελευταία παρτίδα» σημαίνει μέχρι τις 4 το πρωί.</p>
         <div class="level"><i style="width:99%"></i></div>
-        <div class="level-label"><span>Επίπεδο</span><span>Παιδί του Δημοτικού</span></div>
+        <div class="level-label"><span data-en="Level">Επίπεδο</span><span data-en="Primary schooler">Παιδί του Δημοτικού</span></div>
       </div>
       <div class="talent">
         <div class="ico">🧠</div>
-        <h3>Πραγματική ιδιοφυΐα</h3>
-        <p>Και όμως, όλα αυτά συνυπάρχουν με έναν από τους πιο έξυπνους ανθρώπους που θα γνωρίσεις. Η επιστήμη δεν έχει ακόμα εξήγηση.</p>
+        <h3 data-en="Actual genius">Πραγματική ιδιοφυΐα</h3>
+        <p data-en="And yet, all of this coexists with one of the smartest people you'll ever meet. Science has no explanation yet.">Και όμως, όλα αυτά συνυπάρχουν με έναν από τους πιο έξυπνους ανθρώπους που θα γνωρίσεις. Η επιστήμη δεν έχει ακόμα εξήγηση.</p>
         <div class="level"><i style="width:100%"></i></div>
-        <div class="level-label"><span>Επίπεδο</span><span>Αϊνστάιν (με χειριστήριο)</span></div>
+        <div class="level-label"><span data-en="Level">Επίπεδο</span><span data-en="Einstein (with a controller)">Αϊνστάιν (με χειριστήριο)</span></div>
       </div>
     </div>
   </div>
@@ -245,31 +263,31 @@
 
 <section class="games" id="games">
   <div class="wrap">
-    <div class="kicker">Διαδραστική εμπειρία</div>
-    <h2>Ζήσε μια μέρα σαν τον Μηνά</h2>
-    <p class="sub">Τρία μίνι παιχνίδια βασισμένα σε αληθινά γεγονότα.</p>
+    <div class="kicker" data-en="Interactive experience">Διαδραστική εμπειρία</div>
+    <h2 data-en="Live a day as Minas">Ζήσε μια μέρα σαν τον Μηνά</h2>
+    <p class="sub" data-en="Three mini-games based on true events.">Τρία μίνι παιχνίδια βασισμένα σε αληθινά γεγονότα.</p>
     <div class="game-grid">
       <div class="game">
         <div style="font-size:2.4rem">💸</div>
-        <h3>Βάλε τον Μηνά να πληρώσει</h3>
-        <p>Ήρθε ο λογαριασμός. Πάτα το κουμπί… αν μπορείς.</p>
-        <div class="pay-zone" id="payZone"><button class="btn" id="payBtn">Πλήρωσε, Μηνά!</button></div>
+        <h3 data-en="Make Minas pay">Βάλε τον Μηνά να πληρώσει</h3>
+        <p data-en="The bill has arrived. Click the button… if you can.">Ήρθε ο λογαριασμός. Πάτα το κουμπί… αν μπορείς.</p>
+        <div class="pay-zone" id="payZone"><button class="btn" id="payBtn" data-en="Pay up, Minas!">Πλήρωσε, Μηνά!</button></div>
         <div class="result" id="payResult"></div>
       </div>
       <div class="game">
         <div style="font-size:2.4rem">🚽</div>
-        <h3>Χρονόμετρο τουαλέτας</h3>
-        <p>Ο Μηνάς μόλις μπήκε στην τουαλέτα «για ένα λεπτό».</p>
+        <h3 data-en="Toilet timer">Χρονόμετρο τουαλέτας</h3>
+        <p data-en="Minas just went into the toilet “for a minute”.">Ο Μηνάς μόλις μπήκε στην τουαλέτα «για ένα λεπτό».</p>
         <div class="timer" id="toiletTimer">00:00</div>
-        <button class="btn" id="toiletBtn">Χτύπα την πόρτα 🚪</button>
+        <button class="btn" id="toiletBtn" data-en="Knock on the door 🚪">Χτύπα την πόρτα 🚪</button>
         <div class="result" id="toiletResult"></div>
       </div>
       <div class="game">
         <div style="font-size:2.4rem">💨</div>
-        <h3>Ο Chiara-μετρητής</h3>
-        <p>Πάτα για κάθε «δώρο» που λαμβάνει η Chiara σήμερα.</p>
+        <h3 data-en="The Chiara-meter">Ο Chiara-μετρητής</h3>
+        <p data-en="Click for every “gift” Chiara receives today.">Πάτα για κάθε «δώρο» που λαμβάνει η Chiara σήμερα.</p>
         <div class="fart-count" id="fartCount">0</div>
-        <button class="btn" id="fartBtn">Πρρρτ! 💨</button>
+        <button class="btn" id="fartBtn" data-en="Pfffrt! 💨">Πρρρτ! 💨</button>
         <div class="result" id="fartResult"></div>
       </div>
     </div>
@@ -278,65 +296,103 @@
 
 <section>
   <div class="wrap">
-    <div class="kicker">Το ημερολόγιο του Μηνά</div>
-    <h2>Προγραμματισμένα vs. Πραγματικότητα</h2>
+    <div class="kicker" data-en="Minas's calendar">Το ημερολόγιο του Μηνά</div>
+    <h2 data-en="Planned vs. Reality">Προγραμματισμένα vs. Πραγματικότητα</h2>
     <div class="cal">
-      <div class="cal-row"><div>Ώρα</div><div>Ραντεβού</div><div>Κατάσταση</div></div>
-      <div class="cal-row"><div>09:00</div><div><s>Οδοντίατρος</s> → ήταν στην τουαλέτα</div><span class="pill no">Ξεχάστηκε</span></div>
-      <div class="cal-row"><div>13:00</div><div><s>Φαγητό με φίλους</s> → ήρθε, έφαγε, «ξέχασε» το πορτοφόλι</div><span class="pill no">Πλήρωσαν άλλοι</span></div>
-      <div class="cal-row"><div>18:00</div><div><s>Βόλτα με τη Chiara</s> → «ένα παιχνιδάκι μόνο»</div><span class="pill ps">PS5</span></div>
-      <div class="cal-row"><div>21:00</div><div><s>Δείπνο επετείου</s> → τι επέτειος;</div><span class="pill no">Ξεχάστηκε</span></div>
-      <div class="cal-row"><div>04:00</div><div>Ύπνος (επιτέλους)</div><span class="pill ps">Μετά από 15 ώρες PS5</span></div>
+      <div class="cal-row"><div data-en="Time">Ώρα</div><div data-en="Appointment">Ραντεβού</div><div data-en="Status">Κατάσταση</div></div>
+      <div class="cal-row"><div>09:00</div><div data-en="<s>Dentist</s> → he was in the toilet"><s>Οδοντίατρος</s> → ήταν στην τουαλέτα</div><span class="pill no" data-en="Forgotten">Ξεχάστηκε</span></div>
+      <div class="cal-row"><div>13:00</div><div data-en="<s>Lunch with friends</s> → came, ate, “forgot” his wallet"><s>Φαγητό με φίλους</s> → ήρθε, έφαγε, «ξέχασε» το πορτοφόλι</div><span class="pill no" data-en="Others paid">Πλήρωσαν άλλοι</span></div>
+      <div class="cal-row"><div>18:00</div><div data-en="<s>Walk with Chiara</s> → “just one quick game”"><s>Βόλτα με τη Chiara</s> → «ένα παιχνιδάκι μόνο»</div><span class="pill ps">PS5</span></div>
+      <div class="cal-row"><div>21:00</div><div data-en="<s>Anniversary dinner</s> → what anniversary?"><s>Δείπνο επετείου</s> → τι επέτειος;</div><span class="pill no" data-en="Forgotten">Ξεχάστηκε</span></div>
+      <div class="cal-row"><div>04:00</div><div data-en="Sleep (finally)">Ύπνος (επιτέλους)</div><span class="pill ps" data-en="After 15 hours of PS5">Μετά από 15 ώρες PS5</span></div>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="kicker">Κριτικές</div>
-    <h2>Τι λένε οι άνθρωποι γύρω του</h2>
+    <div class="kicker" data-en="Reviews">Κριτικές</div>
+    <h2 data-en="What the people around him say">Τι λένε οι άνθρωποι γύρω του</h2>
     <div class="reviews">
       <div class="review angry">
         <div class="stars">★☆☆☆☆</div>
-        <blockquote>«Τον αγαπώ, αλλά αν μου κλάσει άλλη μια φορά στη μούρη, παίρνω το PS5 και το πετάω στο λιμάνι μαζί με τα κρουαζιερόπλοια. Και φέρε το πορτοφόλι σου επιτέλους!» 😤</blockquote>
-        <div class="who">Chiara η κλανιάρα<small>Κοπέλα του, μόνιμα θυμωμένη</small></div>
+        <blockquote data-en="“I love him, but if he farts in my face one more time, I'm taking the PS5 and throwing it into the harbour along with the cruise ships. And bring your wallet for once!” 😤">«Τον αγαπώ, αλλά αν μου κλάσει άλλη μια φορά στη μούρη, παίρνω το PS5 και το πετάω στο λιμάνι μαζί με τα κρουαζιερόπλοια. Και φέρε το πορτοφόλι σου επιτέλους!» 😤</blockquote>
+        <div class="who" data-en="Chiara the Farter<small>His girlfriend, permanently angry</small>">Chiara η κλανιάρα<small>Κοπέλα του, μόνιμα θυμωμένη</small></div>
       </div>
       <div class="review">
         <div class="stars">★★★★★</div>
-        <blockquote>«Ο καλύτερος προγραμματιστής που ξέρω. Μου έφτιαξε όλο το σύστημα σε μια μέρα. Τον κέρασα καφέ. Τον κέρασα και φαγητό. Τον κερνάω από το 2015.»</blockquote>
-        <div class="who">Ένας φίλος<small>Χρηματοδότης του Μηνά, ακούσια</small></div>
+        <blockquote data-en="“The best programmer I know. He built our whole system in a day. I bought him a coffee. I bought him lunch too. I've been buying since 2015.”">«Ο καλύτερος προγραμματιστής που ξέρω. Μου έφτιαξε όλο το σύστημα σε μια μέρα. Τον κέρασα καφέ. Τον κέρασα και φαγητό. Τον κερνάω από το 2015.»</blockquote>
+        <div class="who" data-en="A friend<small>Minas's sponsor, involuntarily</small>">Ένας φίλος<small>Χρηματοδότης του Μηνά, ακούσια</small></div>
       </div>
       <div class="review">
         <div class="stars">★★★★☆</div>
-        <blockquote>«Τα κρουαζιερόπλοια φτάνουν πάντα στην ώρα τους χάρη σε αυτόν. Εκείνος φτάνει όποτε θυμηθεί ότι έχει δουλειά.»</blockquote>
-        <div class="who">Συνάδελφος<small>Astoria, Πάτμος</small></div>
+        <blockquote data-en="“The cruise ships always arrive on time thanks to him. He arrives whenever he remembers he has work.”">«Τα κρουαζιερόπλοια φτάνουν πάντα στην ώρα τους χάρη σε αυτόν. Εκείνος φτάνει όποτε θυμηθεί ότι έχει δουλειά.»</blockquote>
+        <div class="who" data-en="Colleague<small>Astoria, Patmos</small>">Συνάδελφος<small>Astoria, Πάτμος</small></div>
       </div>
       <div class="review">
         <div class="stars">★★★★★</div>
-        <blockquote>«Ο πιο πιστός πελάτης μας. 15 ώρες τη μέρα, κάθε μέρα. Δεν έχουμε δει τέτοια αφοσίωση ούτε σε 14χρονους.»</blockquote>
-        <div class="who">Το PS5 του<small>Συσκευή, εξουθενωμένη</small></div>
+        <blockquote data-en="“Our most loyal customer. 15 hours a day, every day. We haven't seen dedication like this even from 14-year-olds.”">«Ο πιο πιστός πελάτης μας. 15 ώρες τη μέρα, κάθε μέρα. Δεν έχουμε δει τέτοια αφοσίωση ούτε σε 14χρονους.»</blockquote>
+        <div class="who" data-en="His PS5<small>Device, exhausted</small>">Το PS5 του<small>Συσκευή, εξουθενωμένη</small></div>
       </div>
       <div class="review">
         <div class="stars">★★☆☆☆</div>
-        <blockquote>«Περνάει περισσότερη ώρα μαζί μου απ' ό,τι με τη Chiara. Μία ώρα κάθε φορά. Χρειάζομαι διακοπές.»</blockquote>
-        <div class="who">Η τουαλέτα<small>Πορσελάνινη, κουρασμένη</small></div>
+        <blockquote data-en="“He spends more time with me than with Chiara. An hour each time. I need a holiday.”">«Περνάει περισσότερη ώρα μαζί μου απ' ό,τι με τη Chiara. Μία ώρα κάθε φορά. Χρειάζομαι διακοπές.»</blockquote>
+        <div class="who" data-en="The toilet<small>Porcelain, tired</small>">Η τουαλέτα<small>Πορσελάνινη, κουρασμένη</small></div>
       </div>
       <div class="review">
         <div class="stars">★☆☆☆☆</div>
-        <blockquote>«Δεν έχω δει φως από το 2019. Ζω σε ένα συρτάρι στο σπίτι. Αν με βρείτε, πείτε του ότι υπάρχω.»</blockquote>
-        <div class="who">Το πορτοφόλι του<small>Αγνοούμενο</small></div>
+        <blockquote data-en="“I haven't seen daylight since 2019. I live in a drawer at home. If you find me, tell him I exist.”">«Δεν έχω δει φως από το 2019. Ζω σε ένα συρτάρι στο σπίτι. Αν με βρείτε, πείτε του ότι υπάρχω.»</blockquote>
+        <div class="who" data-en="His wallet<small>Missing</small>">Το πορτοφόλι του<small>Αγνοούμενο</small></div>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <p><b>Μηνάς</b> — Προγραμματιστής 💻 · Astoria Patmos 🚢 · PS5 Champion 🎮</p>
-  <p>Φτιαγμένο με αγάπη (και λίγη εκδίκηση) από τους φίλους του, που ακόμα περιμένουν να τους επιστρέψει τα λεφτά του καφέ. ☕</p>
-  <p style="opacity:.6;font-size:.85rem">© 2026 · Καμία κλανιά δεν βλάφτηκε κατά τη δημιουργία αυτής της σελίδας. Η Chiara διαφωνεί.</p>
+  <p data-en="<b>Minas</b> — Programmer 💻 · Astoria Patmos 🚢 · PS5 Champion 🎮"><b>Μηνάς</b> — Προγραμματιστής 💻 · Astoria Patmos 🚢 · PS5 Champion 🎮</p>
+  <p data-en="Made with love (and a little revenge) by his friends, who are still waiting to get their coffee money back. ☕">Φτιαγμένο με αγάπη (και λίγη εκδίκηση) από τους φίλους του, που ακόμα περιμένουν να τους επιστρέψει τα λεφτά του καφέ. ☕</p>
+  <p style="opacity:.6;font-size:.85rem" data-en="© 2026 · No farts were harmed in the making of this page. Chiara disagrees.">© 2026 · Καμία κλανιά δεν βλάφτηκε κατά τη δημιουργία αυτής της σελίδας. Η Chiara διαφωνεί.</p>
 </footer>
 
 <script>
+  // Strings used by the mini-games, per language
+  const T = {
+    el: {
+      title: 'Μηνάς — Προγραμματιστής, Θρύλος, Ξεχασιάρης',
+      excuses: ['«Ωχ, ξέχασα το πορτοφόλι!» 🙃', '«Την επόμενη φορά κερνάω εγώ!» 😇', '«Δεν παίρνουν κάρτα εδώ, ε;» 🤔', '«Πήγα τουαλέτα, πληρώσατε;» 🚽', '«Ο ATM ήταν κλειστός» 🏧', '«Θα σας τα στείλω με IRIS» 📱'],
+      paid: '🎉 Πλήρωσε! … ψέματα, πλήρωσες εσύ πάλι.',
+      toilet: ['«Ένα λεπτό!»', '«Σχεδόν τελείωσα!»', '«Διαβάζω κάτι σημαντικό!»', '«Μόλις ξεκίνησα!»', '«Έχω ακόμα 12% μπαταρία!»', '«Πέρνα σε μία ωρίτσα»'],
+      moods: ['Η Chiara είναι ήρεμη… προς το παρόν 🙂', 'Η Chiara αρχίζει να εκνευρίζεται 😠', 'Η Chiara ψάχνει μάσκα αερίων 😷', 'Η Chiara πουλάει το PS5 στο eBay 🤬', 'Η Chiara μετακόμισε στην Ιταλία 🇮🇹✈️']
+    },
+    en: {
+      title: 'Minas — Programmer, Legend, Forgetful',
+      excuses: ['“Oops, I forgot my wallet!” 🙃', '“Next round is on me!” 😇', '“They don\'t take cards here, right?” 🤔', '“I was in the toilet — did you pay?” 🚽', '“The ATM was closed” 🏧', '“I\'ll send it to you via IRIS” 📱'],
+      paid: '🎉 He paid! … just kidding, you paid again.',
+      toilet: ['“One minute!”', '“Almost done!”', '“I\'m reading something important!”', '“I just started!”', '“I still have 12% battery!”', '“Come back in an hour”'],
+      moods: ['Chiara is calm… for now 🙂', 'Chiara is getting annoyed 😠', 'Chiara is looking for a gas mask 😷', 'Chiara is selling the PS5 on eBay 🤬', 'Chiara moved back to Italy 🇮🇹✈️']
+    }
+  };
+  let lang = 'el';
+
+  // Language switch: Greek lives in the markup, English in data-en attributes
+  function setLang(next) {
+    lang = next;
+    document.documentElement.lang = next;
+    document.title = T[next].title;
+    document.querySelectorAll('[data-en]').forEach(el => {
+      if (el.dataset.el === undefined) el.dataset.el = el.innerHTML;
+      el.innerHTML = next === 'en' ? el.dataset.en : el.dataset.el;
+    });
+    document.querySelectorAll('[data-en-alt]').forEach(el => {
+      if (el.dataset.elAlt === undefined) el.dataset.elAlt = el.alt;
+      el.alt = next === 'en' ? el.dataset.enAlt : el.dataset.elAlt;
+    });
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === next));
+    payResult.textContent = ''; tr.textContent = '';
+    updateMood();
+    try { localStorage.setItem('lang', next); } catch (_) {}
+  }
+
   // Animated counters
   const counters = document.querySelectorAll('[data-count]');
   const io = new IntersectionObserver(entries => {
@@ -359,37 +415,42 @@
 
   // Runaway pay button
   const payBtn = document.getElementById('payBtn'), payZone = document.getElementById('payZone'), payResult = document.getElementById('payResult');
-  const excuses = ['«Ωχ, ξέχασα το πορτοφόλι!» 🙃', '«Την επόμενη φορά κερνάω εγώ!» 😇', '«Δεν παίρνουν κάρτα εδώ, ε;» 🤔', '«Πήγα τουαλέτα, πληρώσατε;» 🚽', '«Ο ATM ήταν κλειστός» 🏧', '«Θα σας τα στείλω με IRIS» 📱'];
   let tries = 0;
   function runAway() {
     const zw = payZone.clientWidth, zh = payZone.clientHeight, bw = payBtn.offsetWidth, bh = payBtn.offsetHeight;
     payBtn.style.left = (bw / 2 + Math.random() * Math.max(0, zw - bw)) + 'px';
     payBtn.style.top = (bh / 2 + Math.random() * Math.max(0, zh - bh)) + 'px';
-    payResult.textContent = excuses[tries++ % excuses.length];
+    const ex = T[lang].excuses;
+    payResult.textContent = ex[tries++ % ex.length];
   }
   payBtn.addEventListener('mouseenter', runAway);
   payBtn.addEventListener('click', e => {
     e.preventDefault(); runAway();
-    payResult.textContent = '🎉 Πλήρωσε! … ψέματα, πλήρωσες εσύ πάλι.';
+    payResult.textContent = T[lang].paid;
   });
 
   // Toilet timer (accelerated: 1 real second = 1 toilet minute)
   const tt = document.getElementById('toiletTimer'), tr = document.getElementById('toiletResult');
   let mins = 0;
-  const toiletLines = ['«Ένα λεπτό!»', '«Σχεδόν τελείωσα!»', '«Διαβάζω κάτι σημαντικό!»', '«Μόλις ξεκίνησα!»', '«Έχω ακόμα 12% μπαταρία!»', '«Πέρνα σε μία ωρίτσα»'];
   setInterval(() => {
     mins = (mins + 1) % 100;
     tt.textContent = String(Math.floor(mins / 60)).padStart(2, '0') + ':' + String(mins % 60).padStart(2, '0');
   }, 1000);
   document.getElementById('toiletBtn').addEventListener('click', e => {
-    tr.textContent = toiletLines[Math.floor(Math.random() * toiletLines.length)];
+    const lines = T[lang].toilet;
+    tr.textContent = lines[Math.floor(Math.random() * lines.length)];
     burst(e.clientX, e.clientY, '🚪');
   });
 
   // Fart counter with a synthesized sound
   let farts = 0, ctx;
   const fc = document.getElementById('fartCount'), fr = document.getElementById('fartResult');
-  const moods = [[0, 'Η Chiara είναι ήρεμη… προς το παρόν 🙂'], [3, 'Η Chiara αρχίζει να εκνευρίζεται 😠'], [7, 'Η Chiara ψάχνει μάσκα αερίων 😷'], [12, 'Η Chiara πουλάει το PS5 στο eBay 🤬'], [20, 'Η Chiara μετακόμισε στην Ιταλία 🇮🇹✈️']];
+  const moodThresholds = [0, 3, 7, 12, 20];
+  function updateMood() {
+    let i = 0;
+    moodThresholds.forEach((t, j) => { if (farts >= t) i = j; });
+    fr.textContent = T[lang].moods[i];
+  }
   function fartSound() {
     try {
       ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
@@ -405,10 +466,17 @@
   }
   document.getElementById('fartBtn').addEventListener('click', e => {
     farts++; fc.textContent = farts; fartSound();
-    fr.textContent = moods.filter(m => farts >= m[0]).pop()[1];
+    updateMood();
     burst(e.clientX, e.clientY, '💨');
   });
-  fr.textContent = moods[0][1];
+
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // Initial language: ?lang= link, then saved choice, then browser language
+  let initial = new URLSearchParams(location.search).get('lang');
+  if (!T[initial]) { try { initial = localStorage.getItem('lang'); } catch (_) {} }
+  if (!T[initial]) initial = (navigator.language || 'el').toLowerCase().startsWith('el') ? 'el' : 'en';
+  setLang(initial);
 </script>
 </body>
 </html>
